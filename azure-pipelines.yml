@@ -21,6 +21,7 @@ stages:
       displayName: 'Run a multi-line script'
 
 - stage: SecondStage
+  dependsOn: []
   jobs:
   - job: SecondStageJob1
     steps:
