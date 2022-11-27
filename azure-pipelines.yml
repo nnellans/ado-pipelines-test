@@ -11,14 +11,14 @@ pool:
 
 stages:
 
-#- stage: FirstStage
-#  jobs:
-#  - job: FirstStageJob1
-#    steps:
-#    - script: |
-#        echo Hello, world!
-#        sleep 15
-#      displayName: 'Run a multi-line script'
+- stage: FirstStage
+  jobs:
+  - job: FirstStageJob1
+    steps:
+    - script: |
+        echo Hello, world!
+        sleep 15
+      displayName: 'Run a multi-line script'
 
 - stage: SecondStage
   #dependsOn: []
