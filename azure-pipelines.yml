@@ -15,8 +15,10 @@ stages:
   jobs:
   - job: FirstStageJob1
     steps:
-    - script: echo Hello, world!
-      displayName: 'Run a one-line script'
+    - script: |
+        echo Hello, world!
+        sleep 30
+      displayName: 'Run a multi-line script'
 
 - stage: SecondStage
   jobs:
@@ -25,9 +27,11 @@ stages:
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
+        sleep 30
       displayName: 'Run a multi-line script'
   - job: SecondStageJob2
     steps:
     - script: |
         echo This is a second job to test parallel jobs
+        sleep 30
       displayName: 'Test a parallel job'
