@@ -31,7 +31,7 @@ stages:
         sleep 15
       displayName: 'Run a multi-line script'
   - job: SecondStageJob2
-    #dependsOn: SecondStageJob1
+    dependsOn: SecondStageJob1
     steps:
     - script: |
         echo This is a second job to test parallel jobs
