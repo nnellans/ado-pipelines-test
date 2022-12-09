@@ -1,4 +1,5 @@
 name: 'My Big Fat Test'
+appendCommitMessageToRunName: false
 
 trigger:
 - main
