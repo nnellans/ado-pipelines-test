@@ -1,8 +1,13 @@
 #name: 'My Big Fat Test'
 appendCommitMessageToRunName: false
 
-trigger:
-- main
+trigger: 'none'
+pr: 'none'
+
+parameters:
+- name: 'testparam'
+  displayName: 'This is a test parameter'
+  type: 'string'
 
 pool:
   vmImage: ubuntu-latest
