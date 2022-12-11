@@ -6,7 +6,7 @@ pr: 'none'
 
 parameters:
 - name: 'testparam'
-  displayName: 'This is a test parameter'
+  #displayName: 'This is a test parameter'
   type: 'string'
 
 pool:
