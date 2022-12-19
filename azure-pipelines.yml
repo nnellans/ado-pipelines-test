@@ -10,12 +10,12 @@ parameters:
   type: 'string'
 
 pool:
-  vmImage: windows-2022
+  vmImage: windows-2019
 
 resources:
  containers:
    - container: 'myTest'
-     image: 'mcr.microsoft.com/windows/servercore:ltsc2022'
+     image: 'mcr.microsoft.com/windows/servercore:ltsc2019'
 
 stages:
 
