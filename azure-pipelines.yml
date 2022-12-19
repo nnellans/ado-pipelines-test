@@ -10,12 +10,12 @@ parameters:
   type: 'string'
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-2022
 
 resources:
  containers:
    - container: 'myTest'
-     image: 'ubuntu:18.04'
+     image: 'mcr.microsoft.com/windows/servercore:ltsc2019'
 
 stages:
 
@@ -26,7 +26,6 @@ stages:
     steps:
     - script: |
         echo Hello, world!
-        sleep 15
       displayName: 'Run a multi-line script'
 
 - stage: SecondStage
@@ -37,12 +36,10 @@ stages:
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
-        sleep 15
       displayName: 'Run a multi-line script'
   - job: SecondStageJob2
     #dependsOn: SecondStageJob1
     steps:
     - script: |
         echo This is a second job to test parallel jobs
-        sleep 15
       displayName: 'Test a parallel job'
