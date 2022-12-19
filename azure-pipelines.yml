@@ -6,17 +6,23 @@ pr: 'none'
 
 parameters:
 - name: 'testparam'
-  #displayName: 'This is a test parameter'
+  displayName: 'This is a test parameter'
   type: 'string'
 
 pool:
   vmImage: ubuntu-latest
+
+resources:
+ containers:
+   - container: 'myTest'
+     image: 'ubuntu:18.04'
 
 stages:
 
 - stage: FirstStage
   jobs:
   - job: FirstStageJob1
+    container: 'myTest'
     steps:
     - script: |
         echo Hello, world!
