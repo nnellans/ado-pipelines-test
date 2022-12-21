@@ -13,16 +13,16 @@ pool:
   vmImage: windows-2019
 
 resources:
- containers:
-   - container: 'myTest'
-     image: 'mcr.microsoft.com/windows/servercore:ltsc2019'
+  pipelines:
+    - pipeline: 'somename'
+      source: 'ADF Test'
+      trigger: true
 
 stages:
 
 - stage: FirstStage
   jobs:
   - job: FirstStageJob1
-    container: 'myTest'
     steps:
     - script: |
         echo Hello, world!
