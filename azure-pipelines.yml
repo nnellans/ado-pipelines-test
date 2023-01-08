@@ -34,13 +34,9 @@ stages:
   jobs:
   - job: FirstStageJob1
     steps:
-    - script: |
-        echo $[variables['a']]
-        echo '##vso[task.setvariable variable=a]20'
-        echo $[variables['a']]
-      displayName: 'Run a multi-line script'
-    - script: |
-        echo $[variables['a']]
+    - script: $[variables.a]
+    - script: echo '##vso[task.setvariable variable=a]20'
+    - script: $[variables.a]
 
 #- stage: SecondStage
 #  dependsOn: []
