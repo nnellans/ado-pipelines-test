@@ -1,5 +1,5 @@
 #name: 'My Big Fat Test'
-appendCommitMessageToRunName: false
+#appendCommitMessageToRunName: false
 
 trigger: 'none'
 pr: 'none'
@@ -10,43 +10,49 @@ pr: 'none'
 #    include:
 #    - main
 
-parameters:
-- name: 'testparam'
-  displayName: 'This is a test parameter'
-  type: 'serviceConnection'
-  default: 'somedefault'
+#parameters:
+#- name: 'testparam'
+#  displayName: 'This is a test parameter'
+#  type: 'serviceConnection'
+#  default: 'somedefault'
 
 pool:
-  vmImage: windows-2019
+  vmImage: 'ubuntu-latest'
 
-resources:
-  pipelines:
-    - pipeline: 'somename'
-      source: 'ADF Test'
-      trigger: true
+#resources:
+#  pipelines:
+#    - pipeline: 'somename'
+#      source: 'ADF Test'
+#      trigger: true
 
 stages:
 
 - stage: FirstStage
   jobs:
   - job: FirstStageJob1
+    variables:
+      a: 10
     steps:
     - script: |
-        echo Hello, world!
+        echo $[ variables.a ]
+        echo '##vso[task.setvariable variable=a]20'
+        echo $[ variables.a ]
       displayName: 'Run a multi-line script'
+    - script: |
+        echo $[ variables.a ]
 
-- stage: SecondStage
-  #dependsOn: []
-  jobs:
-  - job: SecondStageJob1
-    steps:
-    - script: |
-        echo Add other tasks to build, test, and deploy your project.
-        echo See https://aka.ms/yaml
-      displayName: 'Run a multi-line script'
-  - job: SecondStageJob2
-    #dependsOn: SecondStageJob1
-    steps:
-    - script: |
-        echo This is a second job to test parallel jobs
-      displayName: 'Test a parallel job'
+#- stage: SecondStage
+#  dependsOn: []
+#  jobs:
+#  - job: SecondStageJob1
+#    steps:
+#    - script: |
+#        echo Add other tasks to build, test, and deploy your project.
+#        echo See https://aka.ms/yaml
+#      displayName: 'Run a multi-line script'
+#  - job: SecondStageJob2
+#    dependsOn: SecondStageJob1
+#    steps:
+#    - script: |
+#        echo This is a second job to test parallel jobs
+#      displayName: 'Test a parallel job'
