@@ -16,6 +16,9 @@ pr: 'none'
 #  type: 'serviceConnection'
 #  default: 'somedefault'
 
+variables:
+  a: 10
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -28,8 +31,6 @@ pool:
 stages:
 
 - stage: FirstStage
-  variables:
-    a: 10
   jobs:
   - job: FirstStageJob1
     steps:
