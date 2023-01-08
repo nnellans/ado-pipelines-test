@@ -28,10 +28,10 @@ pool:
 stages:
 
 - stage: FirstStage
+  variables:
+    a: 10
   jobs:
   - job: FirstStageJob1
-    variables:
-      a: 10
     steps:
     - script: |
         echo $[variables.a]
